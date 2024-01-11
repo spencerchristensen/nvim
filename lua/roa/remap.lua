@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>l", vim.cmd.Lazy)
 
 -- allow vertical movement of visual blocks
@@ -31,3 +31,10 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- align the entire file
 vim.keymap.set("n", "<leader>=", "mzggVG=`z", { noremap = true, silent = true })
+
+-- use macOs cursor movements in INSERT mode
+vim.keymap.set("i", "<C-f>", "<Right>")
+vim.keymap.set("i", "<C-b>", "<Left>")
+vim.keymap.set("i", "<C-n>", "<Down>")
+vim.keymap.set("i", "<C-p>", "<Up>")
+vim.keymap.set("i", "<C-e>", "<End>")
