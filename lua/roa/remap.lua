@@ -47,3 +47,10 @@ vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
+
+-- quick buffer switching
+vim.keymap.set("n", "<leader>]", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<leader>[", "<cmd>bprevious<CR>")
+
+-- move cursor to inside of block
+vim.keymap.set("i", "<C-;>", "<Up><End><CR><Tab>")
