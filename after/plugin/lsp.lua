@@ -3,15 +3,15 @@ local lsp_zero = require('lsp-zero')
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "gk", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-    vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', 'go', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.rename, opts)
 
-    vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
-    vim.keymap.set('n', 'g[', '<cmd>lua vim.diagnostic.goto_prev()<cr>', opts)
-    vim.keymap.set('n', 'g]', '<cmd>lua vim.diagnostic.goto_next()<cr>', opts)
+    vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 
     vim.keymap.set({ 'n', 'x' }, 'gf', function()
         vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
@@ -25,6 +25,7 @@ lsp_zero.format_on_save({
     },
     servers = {
         ['rubocop'] = { 'ruby' },
+        ['elixirls'] = { 'elixir' },
     }
 })
 
