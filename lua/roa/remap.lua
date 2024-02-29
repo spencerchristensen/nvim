@@ -20,11 +20,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- system clipboard copy
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>yy", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
+-- copy file path to clipboard
+vim.keymap.set("n", "<leader>yp", '<cmd>let @+ = expand("%")<CR>')
+
 -- search & replace current word
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
@@ -33,7 +36,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>=", "mzggVG=`z", { noremap = true, silent = true })
 
 -- quite escape for insert mode
-vim.keymap.set("i", "<C-c>", "<ESC>")
+vim.keymap.set("i", "<C-j><C-k>", "<ESC>")
 
 -- use macOs cursor movements in INSERT mode
 vim.keymap.set("i", "<C-f>", "<Right>")
@@ -48,9 +51,10 @@ vim.keymap.set("n", "<leader>wl", "<C-w>l")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
 
--- quick buffer switching
-vim.keymap.set("n", "<leader>]", "<cmd>bnext<CR>")
-vim.keymap.set("n", "<leader>[", "<cmd>bprevious<CR>")
+-- tab & buffer movements
+vim.keymap.set("n", "<leader>t", "<cmd>tabnew<CR>")
+vim.keymap.set("n", "<leader>]", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<leader>[", "<cmd>tabprevious<CR>")
 
 -- move cursor to inside of block
 vim.keymap.set("i", "<C-;>", "<Up><End><CR><Tab>")
